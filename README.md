@@ -22,9 +22,9 @@ Esse repositório é de modelo teste para a criação de repositórios git via g
 
 - `develop`: desenvolvimento contínuo.
 
-- `feature/`: desenvolvimento de novas funcionalidades.
+- `feature/`: melhorias-navegacaos.
 
-- `hotfix/`: correções urgentes.
+- `hotfix/`: correcao-menu.
 
 ## Como executar
 
