@@ -28,13 +28,11 @@ Esse repositório é de modelo teste para a criação de repositórios git via g
 
 ## Como executar
 
-supondo que fosse um modelo readme para um app em produção, apenas isso passaria como aceito?
+## Como executar
 
-1. Instale o Vscode.
-
-2. Baixe ou clone o repositório.
-
-3. Execute o arquivo principal.
+1. Baixe ou clone o repositório.
+2. Abra a pasta do projeto no VS Code.
+3. Abra o arquivo `html/index.html` no navegador.
 
 ## Autor
 
