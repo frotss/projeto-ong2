@@ -28,8 +28,6 @@ Esse repositório é de modelo teste para a criação de repositórios git via g
 
 ## Como executar
 
-## Como executar
-
 1. Baixe ou clone o repositório.
 2. Abra a pasta do projeto no VS Code.
 3. Abra o arquivo `html/index.html` no navegador.
