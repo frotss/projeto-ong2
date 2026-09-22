@@ -2,9 +2,7 @@ Projeto desenvolvido para praticar desenvolvimento web e GitFlow.
 
 ## Sobre o projeto
 
-Esse repositório é de modelo teste para a criação de repositórios git via github onde serão implementados conceitos recém aprendidos de
-
-de programação e controle de versão utilizando Git.
+Esse repositório é de modelo teste para a criação de repositórios git via github onde serão implementados conceitos recém aprendidos de programação e controle de versão utilizando Git.
 
 ## Tecnologias utilizadas
 
