@@ -1,37 +1,75 @@
-Projeto desenvolvido para praticar desenvolvimento web e GitFlow.
+# RECICLA-MAIS — Plataforma Web para ONGs
 
-## Sobre o projeto
+Aplicação web desenvolvida para uma organização fictícia do terceiro setor, permitindo à ONG divulgar seus projetos sociais, captar recursos, cadastrar voluntários e apresentar sua missão, valores e visão.
 
-Esse repositório é de modelo teste para a criação de repositórios git via github onde serão implementados conceitos recém aprendidos de programação e controle de versão utilizando Git.
+Projeto desenvolvido como desafio acadêmico de Desenvolvimento Front-end, com foco na transformação de uma estrutura HTML já elaborada em um ambiente responsivo e profissional.
 
-## Tecnologias utilizadas
+## 🚀 Tecnologias utilizadas
 
-- html
+- **HTML5** semântico
+- **CSS3**: layout responsivo, Grid/Flexbox, estados interativos (hover, focus, active)
+- **JavaScript**: módulos independentes para animações, formulário, máscaras de input, modal, navegação, armazenamento local e notificações (toast)
+- **Git & GitHub**: versionamento seguindo o padrão GitFlow
 
-- css
+## 📁 Estrutura do projeto
 
-- javascript
+```
+projeto-ong2/
+├── css/
+│   └── style.css        # Estilos da aplicação (layout, grid, tipografia, estados interativos)
+├── html/
+│   └── index.html       # Página principal do site
+├── imgs/
+│   ├── img1.png ... img6.png
+│   ├── logo.png
+│   ├── missão.png
+│   ├── valores.png
+│   └── visão.png
+├── js/
+│   ├── animations.js     # Animações de interface
+│   ├── form.js            # Lógica do formulário
+│   ├── masks.js            # Máscaras de campos (telefone, CPF etc.)
+│   ├── modal.js             # Comportamento de janelas modais
+│   ├── navigation.js         # Navegação e menu
+│   ├── script.js               # Script geral da aplicação
+│   ├── storage.js               # Persistência via localStorage
+│   ├── toast.js                   # Notificações visuais (toast)
+│   └── validation.js               # Validação de formulários
+└── README.md
+```
 
-- Git
+## ⚙️ Pré-requisitos
 
-- GitHub
+- Navegador atualizado (Chrome, Firefox, Edge ou Brave)
+- VS Code com a extensão **Live Server** instalada (recomendado, para melhor experiência)
 
-## Estrutura de branches
+## 🔧 Instalação e execução local
 
-- `main`: versão estável do projeto.
-
-- `develop`: desenvolvimento contínuo.
-
-- `feature/`: melhorias-navegacaos.
-
-- `hotfix/`: correcao-menu.
-
-## Como executar
-
-1. Baixe ou clone o repositório.
+1. Clone o repositório:
+   ```
+   git clone https://github.com/frotss/projeto-ong2.git
+   ```
 2. Abra a pasta do projeto no VS Code.
-3. Abra o arquivo `html/index.html` no navegador.
+3. Clique com o botão direito no arquivo `html/index.html`.
+4. Selecione **"Open with Live Server"** (ou apenas abra o arquivo diretamente no navegador).
 
-## Autor
+Não há dependências para instalar — o projeto usa apenas HTML, CSS e JavaScript nativo.
 
-Matheus Frotscher
+## 🌳 Estratégia de versionamento (GitFlow)
+
+- **`main`**: versão estável do projeto
+- **`develop`**: desenvolvimento contínuo
+- **`feature/*`**: uma branch por funcionalidade nova (ex: `feature/ajustar-tipografia`)
+- **`hotfix/*`**: correções urgentes (ex: `hotfix/correcao-menu`)
+
+## 📋 Gestão do projeto
+
+O acompanhamento das tarefas é feito através de *issues* e *milestones* no GitHub, com a integração de código realizada via *Pull Requests*, documentando o motivo e a implementação de cada alteração antes da fusão com a `develop`.
+
+## 📄 Licença
+
+Projeto acadêmico, desenvolvido para fins educacionais.
+
+## 👤 Autor
+
+Desenvolvido por Matheus Frotscher.
