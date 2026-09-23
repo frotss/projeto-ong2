@@ -3,6 +3,22 @@
 
 <head>
     <meta charset="UTF-8">
+    <script>
+        // Aplica o tema salvo (ou a preferência do sistema) antes da primeira
+        // pintura da página, evitando o "flash" de tema errado ao carregar.
+        (function () {
+            try {
+                var STORAGE_KEY = 'reciclamais-theme';
+                var saved = localStorage.getItem(STORAGE_KEY);
+                var theme = saved === 'light' || saved === 'dark'
+                    ? saved
+                    : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (e) {
+                // localStorage indisponível (ex.: modo privado); mantém o tema padrão.
+            }
+        })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
         content="RECICLA-MAIS — gestão inteligente de resíduos, educação ambiental e economia circular.">
@@ -24,28 +40,44 @@
         <nav class="main-nav" aria-label="Navegação principal">
             <a class="brand" href="#inicio" aria-label="RECICLA-MAIS - início">RECICLA-MAIS</a>
 
-            <button class="menu-button" id="menu-button" type="button" aria-expanded="false" aria-controls="main-menu"
-                aria-label="Abrir menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+            <div class="nav-actions">
+                <ul class="nav-links" id="main-menu">
+                    <li><a href="#inicio">Início</a></li>
+                    <li class="nav-dropdown">
+                        <button class="nav-dropdown-toggle" type="button" aria-expanded="false">
+                            Projetos
+                        </button>
+                        <ul class="dropdown">
+                            <li><a href="#projetos">Todos os projetos</a></li>
+                            <li><a href="#ecopontos">Ecopontos Inteligentes</a></li>
+                            <li><a href="#coleta">Coleta e Triagem</a></li>
+                            <li><a href="#educacao">Educação Ambiental</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#cadastro">Cadastro</a></li>
+                </ul>
 
-            <ul class="nav-links" id="main-menu">
-                <li><a href="#inicio">Início</a></li>
-                <li class="nav-dropdown">
-                    <button class="nav-dropdown-toggle" type="button" aria-expanded="false">
-                        Projetos
-                    </button>
-                    <ul class="dropdown">
-                        <li><a href="#projetos">Todos os projetos</a></li>
-                        <li><a href="#ecopontos">Ecopontos Inteligentes</a></li>
-                        <li><a href="#coleta">Coleta e Triagem</a></li>
-                        <li><a href="#educacao">Educação Ambiental</a></li>
-                    </ul>
-                </li>
-                <li><a href="#cadastro">Cadastro</a></li>
-            </ul>
+                <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false"
+                    aria-label="Ativar modo escuro">
+                    <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path fill="currentColor"
+                            d="M20.354 15.354A9 9 0 0 1 8.646 3.646 9.003 9.003 0 1 0 20.354 15.354Z" />
+                    </svg>
+                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                        <circle cx="12" cy="12" r="4" />
+                        <path
+                            d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+                    </svg>
+                </button>
+
+                <button class="menu-button" id="menu-button" type="button" aria-expanded="false"
+                    aria-controls="main-menu" aria-label="Abrir menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </nav>
     </header>
 

@@ -1,4 +1,6 @@
 :root {
+    color-scheme: light;
+
     --color-primary: #269fe6;
     --color-primary-hover: #2086c2;
     --color-primary-dark: #13141f;
@@ -34,6 +36,17 @@
     --color-section-vision-bg: #bc434f;
     --color-section-values-bg: #1a6d9e;
 
+    /* Superfícies/planos de fundo que mudam entre os temas.
+       Em modo claro equivalem aos valores que já existiam (branco puro,
+       gradientes claros), então nada muda visualmente até o tema escuro
+       ser ativado. */
+    --color-bg-page: #f5fbfd;
+    --color-surface: var(--color-white);
+    --gradient-hero-start: #e8f7fc;
+    --gradient-hero-end: #f5fbfd;
+    --gradient-cadastro-start: #eef9fc;
+    --gradient-cadastro-end: #dff1f7;
+
     --font-primary: Arial, Helvetica, sans-serif;
     --font-headings: 'Roboto Slab', Georgia, serif;
 
@@ -64,6 +77,45 @@
     --shadow-md: 0 12px 30px rgba(0, 0, 0, 0.12);
 }
 
+/* =========================
+   TEMA ESCURO
+   =========================
+   Sobrescreve só os tokens de cor que precisam mudar entre os temas.
+   Como quase todo o CSS abaixo usa var(--cor-...), a troca de tema
+   acontece automaticamente em cascata, sem duplicar regras.
+   --color-white continua fixo (é usado para texto sobre fundos
+   coloridos, como o cabeçalho verde e o rodapé escuro, que não mudam
+   de cor entre os temas). */
+:root[data-theme="dark"] {
+    color-scheme: dark;
+
+    --color-bg-page: #0f1015;
+    --color-surface: #171923;
+
+    --gradient-hero-start: #12151f;
+    --gradient-hero-end: #0f1015;
+    --gradient-cadastro-start: #141826;
+    --gradient-cadastro-end: #10131c;
+
+    --color-primary-light: rgba(38, 159, 230, 0.22);
+    --color-success-light: rgba(74, 156, 93, 0.22);
+    --color-alert-light: rgba(146, 127, 64, 0.24);
+    --color-warning-light: rgba(146, 127, 64, 0.24);
+    --color-error-light: rgba(218, 82, 93, 0.22);
+    --color-info-light: rgba(77, 134, 196, 0.24);
+
+    --color-gray-0: #1c1f2b;
+    --color-gray-1: #2f3444;
+    --color-gray-2: #3c4258;
+    --color-gray-3: #4d546e;
+    --color-gray-5: #9599ab;
+    --color-gray-6: #aeb2c4;
+    --color-gray-8: #c7cad9;
+    --color-gray-9: #eef0f5;
+
+    --color-dark-text: #c9ccd6;
+}
+
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 76px;
@@ -75,12 +127,13 @@ html {
 
 body {
     margin: 0;
-    background-color: #f5fbfd;
+    background-color: var(--color-bg-page);
     color: var(--color-gray-9);
     font-family: var(--font-primary);
     font-size: var(--font-size-base);
     line-height: 1.6;
     text-align: center;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 img {
@@ -190,6 +243,12 @@ h3 {
     letter-spacing: 0.05em;
 }
 
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
 .nav-links {
     display: flex;
     align-items: center;
@@ -238,7 +297,7 @@ h3 {
     padding: 0.45rem;
     list-style: none;
     border-radius: var(--radius-md);
-    background: var(--color-white);
+    background: var(--color-surface);
     box-shadow: var(--shadow-md);
     text-align: left;
 }
@@ -256,6 +315,41 @@ h3 {
 .dropdown a:hover,
 .dropdown a:focus-visible {
     background: var(--color-primary-light);
+}
+
+.theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 8px;
+    border: 0;
+    border-radius: var(--radius-sm);
+    background: transparent;
+    color: var(--color-white);
+}
+
+.theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.18);
+}
+
+.theme-toggle svg {
+    display: block;
+    width: 21px;
+    height: 21px;
+}
+
+.theme-toggle .icon-sun {
+    display: none;
+}
+
+:root[data-theme="dark"] .theme-toggle .icon-moon {
+    display: none;
+}
+
+:root[data-theme="dark"] .theme-toggle .icon-sun {
+    display: block;
 }
 
 .menu-button {
@@ -297,7 +391,7 @@ h3 {
 .hero {
     padding-top: clamp(4.5rem, 10vw, 8rem);
     padding-bottom: var(--spacing-8);
-    background: linear-gradient(180deg, #e8f7fc 0%, #f5fbfd 100%);
+    background: linear-gradient(180deg, var(--gradient-hero-start) 0%, var(--gradient-hero-end) 100%);
 }
 
 .hero-title {
@@ -332,7 +426,7 @@ h3 {
    ========================= */
 
 .intro {
-    background: var(--color-white);
+    background: var(--color-surface);
 }
 
 .intro h2 {
@@ -356,7 +450,7 @@ h3 {
     padding: var(--spacing-5);
     border: 1px solid var(--color-gray-1);
     border-radius: var(--radius-md);
-    background: #fbfeff;
+    background: var(--color-surface);
 }
 
 .feature-list strong {
@@ -445,7 +539,7 @@ h3 {
     padding: var(--spacing-6);
     border: 1px solid var(--color-gray-1);
     border-radius: var(--radius-md);
-    background: var(--color-white);
+    background: var(--color-surface);
     box-shadow: var(--shadow-sm);
     scroll-margin-top: 90px;
 }
@@ -486,7 +580,7 @@ h3 {
    ========================= */
 
 .cadastro {
-    background: linear-gradient(180deg, #eef9fc 0%, #dff1f7 100%);
+    background: linear-gradient(180deg, var(--gradient-cadastro-start) 0%, var(--gradient-cadastro-end) 100%);
 }
 
 .form-container {
@@ -495,7 +589,7 @@ h3 {
     padding: clamp(1.5rem, 5vw, 3rem);
     border: 1px solid var(--color-gray-1);
     border-radius: var(--radius-lg);
-    background: var(--color-white);
+    background: var(--color-surface);
     box-shadow: var(--shadow-md);
     text-align: left;
 }
@@ -536,7 +630,7 @@ legend {
     padding: 0.85rem 1rem;
     border: 2px solid var(--color-gray-2);
     border-radius: var(--radius-sm);
-    background: var(--color-white);
+    background: var(--color-surface);
     color: var(--color-gray-9);
     transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
@@ -595,14 +689,15 @@ legend {
 .modal-close:focus-visible,
 .modal-icon-close:focus-visible,
 .menu-button:focus-visible,
-.nav-dropdown-toggle:focus-visible {
+.nav-dropdown-toggle:focus-visible,
+.theme-toggle:focus-visible {
     outline: 3px solid var(--color-primary-light);
     outline-offset: 2px;
 }
 
 .btn-secondary {
     border-color: var(--color-gray-3);
-    background: var(--color-white);
+    background: var(--color-surface);
     color: var(--color-gray-9);
 }
 
@@ -631,7 +726,7 @@ legend {
    ========================= */
 
 .ui-components {
-    background: var(--color-white);
+    background: var(--color-surface);
 }
 
 .component-group {
@@ -770,7 +865,7 @@ legend {
     width: min(420px, 100%);
     padding: var(--spacing-7);
     border-radius: var(--radius-md);
-    background: var(--color-white);
+    background: var(--color-surface);
     box-shadow: var(--shadow-md);
     text-align: center;
 }
@@ -804,7 +899,7 @@ legend {
     padding: 0.75rem 1.3rem;
     border: 2px solid var(--color-gray-3);
     border-radius: var(--radius-sm);
-    background: var(--color-white);
+    background: var(--color-surface);
     color: var(--color-gray-9);
     font-weight: 700;
 }

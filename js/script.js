@@ -1,3 +1,5 @@
+/*===================================================================================script.js*/
+
 'use strict';
 
 import { inicializarAOS } from './animations.js';
@@ -5,8 +7,10 @@ import { inicializarNavegacao } from './navigation.js';
 import { inicializarFormulario } from './form.js';
 import { inicializarToast } from './toast.js';
 import { inicializarModal } from './modal.js';
+import { inicializarTema } from './theme.js';
 
 document.addEventListener('DOMContentLoaded', () => {
+    inicializarTema();
     inicializarAOS();
     inicializarNavegacao();
     inicializarToast();
