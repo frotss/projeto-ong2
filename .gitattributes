@@ -1,4 +1,9 @@
+# Força a contagem de todos os arquivos JS e CSS
+*.js linguist-detectable=true
+*.css linguist-detectable=true
 js/* linguist-detectable=true
 css/* linguist-detectable=true
-*.min.js linguist-vendored
-*.min.css linguist-vendored
+
+# Desmarca os arquivos minificados do filtro 'vendored'
+*.min.js linguist-vendored=false
+*.min.css linguist-vendored=false
