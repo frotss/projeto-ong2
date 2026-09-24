@@ -15,27 +15,29 @@ Projeto desenvolvido como desafio acadêmico de Desenvolvimento Front-end, com f
 
 ```
 projeto-ong2/
+├── .gitattributes      # Configurações de detecção de linguagens do GitHub
 ├── css/
-│   └── style.css        # Estilos da aplicação (layout, grid, tipografia, estados interativos)
-├── html/
-│   └── index.html       # Página principal do site
+│   └── style.css       # Estilos da aplicação (layout, grid, tipografia, estados interativos)
 ├── imgs/
 │   ├── img1.png ... img6.png
-│   ├── logo.png
+│   ├── logo.png'
 │   ├── missão.png
 │   ├── valores.png
 │   └── visão.png
 ├── js/
-│   ├── animations.js     # Animações de interface
-│   ├── form.js            # Lógica do formulário
-│   ├── masks.js            # Máscaras de campos (telefone, CPF etc.)
-│   ├── modal.js             # Comportamento de janelas modais
-│   ├── navigation.js         # Navegação e menu
-│   ├── script.js               # Script geral da aplicação
-│   ├── storage.js               # Persistência via localStorage
-│   ├── toast.js                   # Notificações visuais (toast)
-│   └── validation.js               # Validação de formulários
-└── README.md
+│   ├── animations.js   # Animações de interface
+│   ├── form.js         # Lógica do formulário
+│   ├── masks.js        # Máscaras de campos (telefone, CPF etc.)
+│   ├── modal.js        # Comportamento de janelas modais
+│   ├── navigation.js   # Navegação e menu
+│   ├── script.js       # Script geral da aplicação
+│   ├── script.txt      # Anotações / rascunho de script
+│   ├── storage.js      # Persistência via localStorage
+│   ├── theme.js        # Lógica de alternância de tema
+│   ├── toast.js        # Notificações visuais (toast)
+│   └── validation.js   # Validação de formulários
+├── index.html          # Página principal do site (na raiz do projeto)
+└── README.md           # Documentação do projeto
 ```
 
 ## ⚙️ Pré-requisitos
