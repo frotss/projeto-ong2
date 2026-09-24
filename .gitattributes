@@ -1,9 +1,10 @@
-# Força a contagem de todos os arquivos JS e CSS
-*.js linguist-detectable=true
-*.css linguist-detectable=true
-js/* linguist-detectable=true
-css/* linguist-detectable=true
+# Força a associação direta das pastas e ficheiros às suas respetivas linguagens
+js/*.js linguist-language=JavaScript
+css/*.css linguist-language=CSS
 
-# Desmarca os arquivos minificados do filtro 'vendored'
+# Garante que ficheiros minificados não sejam ignorados
 *.min.js linguist-vendored=false
 *.min.css linguist-vendored=false
+
+# Ignora o ficheiro de texto rascunho da contagem de estatísticas
+js/script.txt linguist-vendored=true
